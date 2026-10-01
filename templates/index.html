@@ -65,6 +65,7 @@ async function scanFile(){
 async function poll(id){
   const r = await fetch("/api/result/" + id);
   const d = await r.json();
+  if(d.error) return show("danger", d.error);
   if(!d.done) return setTimeout(() => poll(id), 3000);
   const icons = {safe:"🟢", suspicious:"🟡", danger:"🔴"};
   show(d.status, icons[d.status] + " " + d.message);
