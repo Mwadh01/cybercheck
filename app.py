@@ -76,4 +76,4 @@ def api_history(): return jsonify(db.history())
 def api_stats(): return jsonify(db.stats())
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
