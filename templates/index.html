@@ -1,3 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaudiCheck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-deep:#05261c; --green:#0a3a2b; --green-line:#155c45;
+  --sadu:#c9a96e; --sand:#efe3c8; --text:#e9efe9; --muted:#9fb5aa;
+  --safe:#2fbf71; --warn:#e8b23a; --bad:#e2574c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  padding:24px 16px;color:var(--text);
+  font-family:"IBM Plex Sans Arabic",sans-serif;
+  background-color:var(--green-deep);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c9a96e' stroke-opacity='.07'%3E%3Cpath d='M28 4l7 17 17 7-17 7-7 17-7-17-17-7 17-7z'/%3E%3Crect x='18' y='18' width='20' height='20' transform='rotate(45 28 28)'/%3E%3C/g%3E%3C/svg%3E");
+}
+.card{
+  width:100%;max-width:440px;background:var(--green);
+  border:1px solid var(--green-line);border-radius:20px;overflow:hidden;
+  animation:rise .7s ease-out both;
+}
+.sadu{
+  height:14px;
+  background:
+    linear-gradient(135deg,var(--sadu) 25%,transparent 25%) 0 0/14px 14px,
+    linear-gradient(225deg,var(--sadu) 25%,transparent 25%) 0 0/14px 14px,
+    #8c2f2b;
+}
+.inner{padding:30px 26px 26px}
+h1{
+  font-family:"Reem Kufi",sans-serif;font-size:44px;line-height:1.1;
+  text-align:center;color:var(--sand);letter-spacing:.5px;
+}
+.tagline{text-align:center;color:var(--muted);font-size:15px;margin:8px 0 28px}
+label{display:block;font-size:14px;font-weight:500;margin-bottom:8px;color:var(--sand)}
+input[type=text]{
+  width:100%;padding:14px 16px;border-radius:12px;font:inherit;font-size:15px;
+  border:1px solid var(--green-line);background:var(--green-deep);color:var(--text);
+  direction:ltr;text-align:right;
+}
+input[type=text]::placeholder{color:#6f8a7e}
+input:focus,button:focus-visible{outline:2px solid var(--sadu);outline-offset:2px}
+.file-box{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;
+  border:1px dashed var(--green-line);background:var(--green-deep);cursor:pointer;
+}
+.file-box span{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file-box b{
+  flex-shrink:0;padding:6px 14px;border-radius:8px;font-weight:500;font-size:14px;
+  background:var(--green-line);color:var(--text);
+}
+#file{display:none}
+button{
+  width:100%;margin-top:12px;padding:14px;border:0;border-radius:12px;cursor:pointer;
+  font:inherit;font-size:16px;font-weight:600;
+  background:var(--sadu);color:#2b2010;transition:transform .1s,filter .2s;
+}
+button:hover{filter:brightness(1.08)}
+button:active{transform:scale(.98)}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:26px 0}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--green-line)}
+#result{
+  display:none;margin-top:22px;padding:16px;border-radius:12px;font-size:15px;
+  line-height:1.7;border:1px solid;
+}
+#result.show{display:block;animation:pop .35s ease-out}
+#result.wait{border-color:var(--green-line);background:var(--green-deep);color:var(--muted)}
+#result.safe{border-color:var(--safe);background:rgba(47,191,113,.1)}
+#result.suspicious{border-color:var(--warn);background:rgba(232,178,58,.1)}
+#result.danger{border-color:var(--bad);background:rgba(226,87,76,.1)}
+.spin{
+  display:inline-block;width:16px;height:16px;margin-left:8px;vertical-align:-3px;
+  border:2px solid var(--green-line);border-top-color:var(--sadu);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+nav{display:flex;justify-content:center;gap:28px;margin-top:26px;padding-top:20px;border-top:1px solid var(--green-line)}
+nav a{color:var(--sand);text-decoration:none;font-size:15px}
+nav a:hover{text-decoration:underline}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes pop{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
 @keyframes spin{to{transform:rotate(360deg)}}
