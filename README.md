@@ -1,70 +1,35 @@
-# 🛡️ SaudiCheck
+# SaudiCheck 🛡️
 
-منصة سعوديه لفحص الروابط والملفات المشبوهة، تعتمد على VirusTotal API وتعرض النتيجة بلغة مبسطة (🟢 آمن / 🟡 مشبوه / 🔴 خطر).
+An Arabic web application that scans suspicious URLs and files for threats using the VirusTotal API, and classifies them as safe 🟢, suspicious 🟡, or dangerous 🔴.
 
-## المميزات
-- فحص رابط مشكوك فيه
-- فحص ملف (حتى 32MB)
-- نتيجة عربية واضحة بالألوان
-- سجل بكل الفحوصات السابقة
-- لوحة تحكم بإحصائيات الفحوصات
+**Live demo:** https://cybercheck-rtz4.onrender.com
 
-## التقنيات
-- **Backend:** Python + Flask
--
+## Features
+- Scan URLs and files (up to 32 MB) against 70+ security engines
+- Clear color-coded results in Arabic
+- Scan history and a statistics dashboard
+- Clear error messages for rate limits, invalid keys, and network failures
 
-منصة عربية لفحص الرSQLite
--berCheck
+## Tech Stack
+Python, Flask, SQLite, JavaScript, HTML/CSS, VirusTotal API, Render
 
-منصةHTML / CSS / JavaScript
--بية لفحص الرVirusTotal API v3
+## Security
+- API key stored in environment variables, never in the source code
+- Debug mode disabled in production
+- Input validation for URLs and file size limits
 
-## هيكل المشروعالروابط والملفات المشبوهة، تعتمد على VirusTotal API وتعرض النتيجة بلغة مبسطة (🟢 آمن / 🟡 مشبوه / 🔴 خطر).
+## How It Works
+1. The user submits a URL or file
+2. The server validates it and sends it to VirusTotal
+3. The page checks for the result every 3 seconds (polling)
+4. The result is classified, saved, and shown to the user
 
-## المميزات
-- فحص رابط مشكوك فيه
-- فحص ملف (حتى 32MB)
-- نتيجة عربية واضحة بالألوان
-- سجل بكل الفحوصات السابقة
-- لوحة تحكم بإحصائيات الفحوصات
+## Run Locally
+```bash
+pip install -r requirements.txt
+# create a .env file with: VT_API_KEY=your_key
+python app.py
+```
 
-## التقنيات
-- **Backend:** Python + Flask
-- **قاعدة البيانات:** SQLite
-- **الواجهة:** HTML / CSS / JavaScript
-- *
-## طريقة التشغيل
-
-1. تأكدي من تنزيلروابط والملفو**Git**.
-
-2. انسخي المشروع: لفحص الروابط والملفات المشبوهة، تعتمد على VirusTotal API وتعرض النتيجة بلغ
-3. ثبّتي المكتبات:نصة عربية لفحص الروابط والملفات المشبوهة،
-4. أنشئي ملفeck
-
-منصفي المجلد الرئيسي وحطي فيه مفتاحك الخاص من [VirusTotal](https://www.virustotal.com) (من الحساب ← API Key):بسطة (🟢 آمن / 🟡 مشبوه / 🔴 خط⚠️ لا ترفعين ملف
-
-منصة ععلى GitHub ولا تشاركين مفتاحك.
-
-5. شغّلي السيرفر:ت المشبوهة، تعتمد على V
-6. افتحي المتصفح علىة عربية لفحص الروابط والم
-## نقاط الـ API
-
-| الطريقة | المسار | الوصف |
-|---|---|---|
-| POST |ى VirusTotal API | فحص رابط |
-| POST |ة عربية لفحص الروا| فحص ملف |
-| GET |نصة عربية لفحص الروا| نتيجة الفحص |
-| GET |عربية لفحص الروا| سجل الفحوصات |
-| GET |ربية لفحص الرو| الإحصائيات |
-
-## طريقة العمل كفريق
-
-- ممنوع الرفع مباشرة على فرع على Vir
-- كل عضوة تشتغل على فرع خاص فيها:الروابط والملفات المشبوهة، تعتمد على VirusTotal API وتعرض النتيجة بلغة مبسطة (🟢 آمن / 🟡 مشبوه / 🔴 خطر).
-- بعد الرفع تفتح
-
-منصة عربية لفحص ويراجعه فرد آخر من الفريق قبل الدمج.
-- قبل ما تبدأين أي يوم اسحبي آخر التعديلات:l API وتعرض النتيجة بلغة مبسطة (🟢 آ
-## ملاحظات
-- حساب VirusTotal المجاني محدود (4 طلبات بالدقيقة و500 باليوم) ولا يُستخدم للأغراض التجارية.
-- المشروع للأغراض التعليمية (مشروع تخرج).
+## Author
+Mawadah Abdulaziz – Cybersecurity Diploma Student
